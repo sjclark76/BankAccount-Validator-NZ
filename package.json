@@ -1,0 +1,19 @@
+{
+  "name": "nz-bankaccount-validator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sjclark76/NZ-BankAccount-Validator.git"
+  },
+  "author": "Stuart Clark",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sjclark76/NZ-BankAccount-Validator/issues"
+  },
+  "homepage": "https://github.com/sjclark76/NZ-BankAccount-Validator#readme"
+}
