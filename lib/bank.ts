@@ -49,7 +49,7 @@ export class Bank {
     public static isBankNumberValid(bankId: number, bankNumber: number): boolean {
         var bank = this.getBank(bankId);
 
-        return bank ?  bank.isBankNumberValid(bankNumber) : false;
+        return bank ? bank.isBankNumberValid(bankNumber) : false;
     }
 
     /// <summary>
@@ -59,10 +59,10 @@ export class Bank {
     /// <param name="bankNumber">The bank number</param>
     /// <param name="branchNumber">The branch number</param>
     /// <returns>true/false</returns>
-    public static isBranchNumberValid( bankId :number, bankNumber: number, branchNumber: number):boolean {
+    public static isBranchNumberValid(bankId: number, bankNumber: number, branchNumber: number): boolean {
         var bank = this.getBank(bankId);
-               
-        return  bank ? bank.isBranchNumberValid(bankNumber, branchNumber) : false;
+
+        return bank ? bank.isBranchNumberValid(bankNumber, branchNumber) : false;
     }
 
     /// <summary>
@@ -74,7 +74,7 @@ export class Bank {
     /// <param name="accountNumber">the account number</param>
     /// <param name="suffix">the suffix</param>
     /// <returns></returns>
-    public static isAccountNumberValid(bankId :number, bankNumber:number, branchNumber:number, accountNumber:number,  suffix:number):boolean {
+    public static isAccountNumberValid(bankId: number, bankNumber: number, branchNumber: number, accountNumber: number, suffix: number): boolean {
         var bank = this.getBank(bankId);
 
         if (bank == null) return false;
@@ -92,39 +92,37 @@ export class Bank {
     /// <param name="bankId">the bank id.</param>
     /// <returns>The bank or null if it cannot be found</returns>
 
-    public static getBank(bankId: number): Bank| undefined {
-        var banks =  this.values.filter(x => x.bankId == bankId);
+    public static getBank(bankId: number): Bank | undefined {
+        var banks = this.values.filter(x => x.bankId == bankId);
 
-        let bank: Bank | undefined  = undefined;
+        let bank: Bank | undefined = undefined;
 
-        if(banks && banks.length > 0)
-        {
+        if (banks && banks.length > 0) {
             bank = banks[0];
         }
 
         return bank;
     }
- 
-    private isBankNumberValid(bankNumber: number) :boolean {
+
+    private isBankNumberValid(bankNumber: number): boolean {
         let bankNumbers = this._bankNumbers.filter(number => number.value == bankNumber);
 
         return bankNumbers && bankNumbers.length > 0;
     }
 
-    private isBranchNumberValid(bankNumber:number, branchNumber:number):boolean {
+    private isBranchNumberValid(bankNumber: number, branchNumber: number): boolean {
         var foundBankNumber = this.getBankNumber(bankNumber);
 
         return foundBankNumber != null && foundBankNumber.containsBranchNumber(branchNumber);
     }
 
-    private getBankNumber(bankNumber: number):BankNumber | undefined{
+    private getBankNumber(bankNumber: number): BankNumber | undefined {
 
-        var bankNumbers =  this.bankNumbers.filter(number => number.value == bankNumber);
+        var bankNumbers = this.bankNumbers.filter(number => number.value == bankNumber);
 
-        let bankNumberInstance: BankNumber | undefined  = undefined;
+        let bankNumberInstance: BankNumber | undefined = undefined;
 
-        if(bankNumbers && bankNumbers.length > 0)
-        {
+        if (bankNumbers && bankNumbers.length > 0) {
             bankNumberInstance = bankNumbers[0];
         }
 
@@ -139,9 +137,8 @@ export class Bank {
 
     }
 
-    private static getFormattedBankAccount(bankNumber:number, branchNumber:number, accountNumber:number, suffix:number):string
-{
-    return 'asdf';
-    // return `${bankNumber:00}${branchNumber:0000}-${accountNumber:0000000}-${suffix:000}`;
-}
+    private static getFormattedBankAccount(bankNumber: number, branchNumber: number, accountNumber: number, suffix: number): string {
+        return 'asdf';
+        // return `${bankNumber:00}${branchNumber:0000}-${accountNumber:0000000}-${suffix:000}`;
     }
+}

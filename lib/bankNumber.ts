@@ -49,4 +49,7 @@ export class BankNumber {
     public static thirtyFive = new BankNumber(35, new AlgorithmA(), [new NumberRange(2400, 2499)]);
     public static thirtyEight = new BankNumber(38, new AlgorithmA(), [new NumberRange(9000, 9499)]);
 
+    public isFormattedAccountNumberValid(formattedAccountNumber: string): boolean {
+        return this._algorithm.validate(formattedAccountNumber);
+    }
 }
