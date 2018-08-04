@@ -1,1 +1,1 @@
-export declare function getPlural(str: any): string;
+export declare function getBank(str: any): number;
