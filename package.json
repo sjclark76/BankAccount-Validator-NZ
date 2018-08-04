@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/sjclark76/NZ-BankAccount-Validator/issues"
   },
-  "homepage": "https://github.com/sjclark76/NZ-BankAccount-Validator#readme"
+  "homepage": "https://github.com/sjclark76/NZ-BankAccount-Validator#readme",
+  "devDependencies": {
+    "typescript": "^3.0.1"
+  }
 }
