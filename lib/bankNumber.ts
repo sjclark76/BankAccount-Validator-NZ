@@ -4,7 +4,7 @@ import { NumberRange } from "./numberRange";
 export class BankNumber {
     private _algorithm: Modulus11AlgorithmBase;
     public value: number;
-    private _ranges: NumberRange[]
+    private _ranges: NumberRange[];
 
     private constructor(bankNumber: number, algorithm: Modulus11AlgorithmBase, ranges: NumberRange[]) {
         this._algorithm = algorithm;
@@ -16,8 +16,10 @@ export class BankNumber {
         return this._ranges.some(numberRange => branchNumber >= numberRange.start && branchNumber <= numberRange.end);
     }
 
+    // tslint:disable-next-line:max-line-length
     public static one: BankNumber = new BankNumber(1, new AlgorithmA(), [new NumberRange(1, 999), new NumberRange(1100, 1199), new NumberRange(1800, 1899)]);
     public static two: BankNumber = new BankNumber(2, new AlgorithmA(), [new NumberRange(1, 999), new NumberRange(1200, 1299)]);
+    // tslint:disable-next-line:max-line-length
     public static three = new BankNumber(3, new AlgorithmA(), [new NumberRange(1, 999), new NumberRange(1300, 1399), new NumberRange(1500, 1599), new NumberRange(1700, 1799), new NumberRange(1900, 1999)]);
     public static four = new BankNumber(4, new AlgorithmA(), [new NumberRange(2020, 2024)]);
     public static six = new BankNumber(6, new AlgorithmA(), [new NumberRange(1, 999), new NumberRange(1400, 1499)]);
@@ -25,6 +27,7 @@ export class BankNumber {
     public static nine = new BankNumber(9, new AlgorithmE(), [new NumberRange(0, 0)]);
     public static ten = new BankNumber(10, new AlgorithmA(), [new NumberRange(5165, 5169)]);
     public static eleven = new BankNumber(11, new AlgorithmA(), [new NumberRange(5000, 6499), new NumberRange(6600, 8999)]);
+    // tslint:disable-next-line:max-line-length
     public static twelve = new BankNumber(12, new AlgorithmA(), [new NumberRange(3000, 3299), new NumberRange(3400, 3600), new NumberRange(3600, 3699)]);
     public static thirteen = new BankNumber(13, new AlgorithmA(), [new NumberRange(4900, 4999)]);
     public static fourteen = new BankNumber(14, new AlgorithmA(), [new NumberRange(4700, 4799)]);

@@ -15,8 +15,10 @@ class BankNumber {
         return this._algorithm.validate(formattedAccountNumber);
     }
 }
+// tslint:disable-next-line:max-line-length
 BankNumber.one = new BankNumber(1, new modulus11AlgorithmBase_1.AlgorithmA(), [new numberRange_1.NumberRange(1, 999), new numberRange_1.NumberRange(1100, 1199), new numberRange_1.NumberRange(1800, 1899)]);
 BankNumber.two = new BankNumber(2, new modulus11AlgorithmBase_1.AlgorithmA(), [new numberRange_1.NumberRange(1, 999), new numberRange_1.NumberRange(1200, 1299)]);
+// tslint:disable-next-line:max-line-length
 BankNumber.three = new BankNumber(3, new modulus11AlgorithmBase_1.AlgorithmA(), [new numberRange_1.NumberRange(1, 999), new numberRange_1.NumberRange(1300, 1399), new numberRange_1.NumberRange(1500, 1599), new numberRange_1.NumberRange(1700, 1799), new numberRange_1.NumberRange(1900, 1999)]);
 BankNumber.four = new BankNumber(4, new modulus11AlgorithmBase_1.AlgorithmA(), [new numberRange_1.NumberRange(2020, 2024)]);
 BankNumber.six = new BankNumber(6, new modulus11AlgorithmBase_1.AlgorithmA(), [new numberRange_1.NumberRange(1, 999), new numberRange_1.NumberRange(1400, 1499)]);
@@ -24,6 +26,7 @@ BankNumber.eight = new BankNumber(8, new modulus11AlgorithmBase_1.AlgorithmD(), 
 BankNumber.nine = new BankNumber(9, new modulus11AlgorithmBase_1.AlgorithmE(), [new numberRange_1.NumberRange(0, 0)]);
 BankNumber.ten = new BankNumber(10, new modulus11AlgorithmBase_1.AlgorithmA(), [new numberRange_1.NumberRange(5165, 5169)]);
 BankNumber.eleven = new BankNumber(11, new modulus11AlgorithmBase_1.AlgorithmA(), [new numberRange_1.NumberRange(5000, 6499), new numberRange_1.NumberRange(6600, 8999)]);
+// tslint:disable-next-line:max-line-length
 BankNumber.twelve = new BankNumber(12, new modulus11AlgorithmBase_1.AlgorithmA(), [new numberRange_1.NumberRange(3000, 3299), new numberRange_1.NumberRange(3400, 3600), new numberRange_1.NumberRange(3600, 3699)]);
 BankNumber.thirteen = new BankNumber(13, new modulus11AlgorithmBase_1.AlgorithmA(), [new numberRange_1.NumberRange(4900, 4999)]);
 BankNumber.fourteen = new BankNumber(14, new modulus11AlgorithmBase_1.AlgorithmA(), [new numberRange_1.NumberRange(4700, 4799)]);
