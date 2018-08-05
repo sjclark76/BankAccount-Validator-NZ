@@ -1,20 +1,20 @@
 import { BankNumber } from "./bankNumber";
 
 export class Bank {
-    public static anz: Bank = new Bank(1, "ANZ", [BankNumber.one, BankNumber.four, BankNumber.six, BankNumber.eleven, BankNumber.twentyFive]);
-    public static readonly Asb: Bank = new Bank(2, "ASB Bank", [BankNumber.twelve, BankNumber.twentyFour]);
-    public static readonly Bnz: Bank = new Bank(3, "BNZ", [BankNumber.two, BankNumber.eight]);
-    public static readonly Citibank: Bank = new Bank(4, "Citibank N.A.", [BankNumber.thirtyOne]);
-    public static readonly Hsbc: Bank = new Bank(5, "HSBC New Zealand", [BankNumber.thirty]);
-    public static readonly BankOfChina: Bank = new Bank(6, "Industrial and Commercial Bank of China (New Zealand) Ltd", [BankNumber.ten]);
-    public static readonly Kiwibank: Bank = new Bank(7, "Kiwibank", [BankNumber.thirtyEight]);
-    public static readonly Tsb: Bank = new Bank(8, "TSB Bank", [BankNumber.fifteen]);
-    public static readonly Westpac: Bank = new Bank(9, "Westpac", [BankNumber.three, BankNumber.thirteen, BankNumber.fourteen, BankNumber.sixteen, BankNumber.seventeen, BankNumber.eighteen, BankNumber.nineteen, BankNumber.twenty, BankNumber.twentyOne, BankNumber.twentyTwo, BankNumber.twentyThree, BankNumber.twentySeven]);
-    public static readonly Other: Bank = new Bank(10, "Other", [BankNumber.one, BankNumber.two, BankNumber.three, BankNumber.four, BankNumber.six, BankNumber.eight, BankNumber.nine, BankNumber.ten, BankNumber.eleven, BankNumber.twelve, BankNumber.thirteen, BankNumber.fourteen, BankNumber.fifteen, BankNumber.sixteen, BankNumber.seventeen, BankNumber.eighteen,
+    static anz: Bank = new Bank(1, "ANZ", [BankNumber.one, BankNumber.four, BankNumber.six, BankNumber.eleven, BankNumber.twentyFive]);
+    static readonly Asb: Bank = new Bank(2, "ASB Bank", [BankNumber.twelve, BankNumber.twentyFour]);
+    static readonly Bnz: Bank = new Bank(3, "BNZ", [BankNumber.two, BankNumber.eight]);
+    static readonly Citibank: Bank = new Bank(4, "Citibank N.A.", [BankNumber.thirtyOne]);
+    static readonly Hsbc: Bank = new Bank(5, "HSBC New Zealand", [BankNumber.thirty]);
+    static readonly BankOfChina: Bank = new Bank(6, "Industrial and Commercial Bank of China (New Zealand) Ltd", [BankNumber.ten]);
+    static readonly Kiwibank: Bank = new Bank(7, "Kiwibank", [BankNumber.thirtyEight]);
+    static readonly Tsb: Bank = new Bank(8, "TSB Bank", [BankNumber.fifteen]);
+    static readonly Westpac: Bank = new Bank(9, "Westpac", [BankNumber.three, BankNumber.thirteen, BankNumber.fourteen, BankNumber.sixteen, BankNumber.seventeen, BankNumber.eighteen, BankNumber.nineteen, BankNumber.twenty, BankNumber.twentyOne, BankNumber.twentyTwo, BankNumber.twentyThree, BankNumber.twentySeven]);
+    static readonly Other: Bank = new Bank(10, "Other", [BankNumber.one, BankNumber.two, BankNumber.three, BankNumber.four, BankNumber.six, BankNumber.eight, BankNumber.nine, BankNumber.ten, BankNumber.eleven, BankNumber.twelve, BankNumber.thirteen, BankNumber.fourteen, BankNumber.fifteen, BankNumber.sixteen, BankNumber.seventeen, BankNumber.eighteen,
     BankNumber.nineteen, BankNumber.twenty, BankNumber.twentyOne, BankNumber.twentyTwo, BankNumber.twentyThree, BankNumber.twentyFour, BankNumber.twentyFive, BankNumber.twentySix, BankNumber.twentySeven, BankNumber.twentyEight, BankNumber.twentyNine, BankNumber.thirty, BankNumber.thirtyOne, BankNumber.thirtyThree, BankNumber.thirtyFive, BankNumber.thirtyEight]);
-    _bankId: number;
-    _name: string;
-    _bankNumbers: BankNumber[];
+    private _bankId: number;
+    private _name: string;
+    private _bankNumbers: BankNumber[];
 
     constructor(bankId: number, name: string, bankNumbers: BankNumber[]) {
         this._bankId = bankId;
@@ -25,18 +25,18 @@ export class Bank {
     /// <summary>
     ///     Internal id for uniquely identifying Banks.
     /// </summary>
-    public get bankId(): number {
+    get bankId(): number {
         return this._bankId;
     }
 
     /// <summary>
     /// The full bank name
     /// </summary>
-    public get name(): string {
+    get name(): string {
         return this._name;
     }
 
-    public get bankNumbers(): BankNumber[] {
+    get bankNumbers(): BankNumber[] {
         return this._bankNumbers;
     }
 
@@ -46,7 +46,7 @@ export class Bank {
     /// <param name="bankId">The bank id</param>
     /// <param name="bankNumber">The bank number</param>
     /// <returns>true/false</returns>
-    public static isBankNumberValid(bankId: number, bankNumber: number): boolean {
+    static isBankNumberValid(bankId: number, bankNumber: number): boolean {
         var bank = this.getBank(bankId);
 
         return bank ? bank.isBankNumberValid(bankNumber) : false;
@@ -59,7 +59,7 @@ export class Bank {
     /// <param name="bankNumber">The bank number</param>
     /// <param name="branchNumber">The branch number</param>
     /// <returns>true/false</returns>
-    public static isBranchNumberValid(bankId: number, bankNumber: number, branchNumber: number): boolean {
+    static isBranchNumberValid(bankId: number, bankNumber: number, branchNumber: number): boolean {
         var bank = this.getBank(bankId);
 
         return bank ? bank.isBranchNumberValid(bankNumber, branchNumber) : false;
@@ -74,7 +74,7 @@ export class Bank {
     /// <param name="accountNumber">the account number</param>
     /// <param name="suffix">the suffix</param>
     /// <returns></returns>
-    public static isAccountNumberValid(bankId: number, bankNumber: number, branchNumber: number, accountNumber: number, suffix: number): boolean {
+    static isAccountNumberValid(bankId: number, bankNumber: number, branchNumber: number, accountNumber: number, suffix: number): boolean {
         var bank = this.getBank(bankId);
 
         if (bank == null) return false;
@@ -92,7 +92,7 @@ export class Bank {
     /// <param name="bankId">the bank id.</param>
     /// <returns>The bank or null if it cannot be found</returns>
 
-    public static getBank(bankId: number): Bank | undefined {
+    static getBank(bankId: number): Bank | undefined {
         var banks = this.values.filter(x => x.bankId == bankId);
 
         let bank: Bank | undefined = undefined;
@@ -129,7 +129,7 @@ export class Bank {
         return bankNumberInstance;
     }
 
-    public static get values(): Bank[] {
+    static get values(): Bank[] {
 
         let banks: Bank[] = new Array(this.anz, this.Asb, this.Bnz, this.Citibank, this.Hsbc, this.BankOfChina, this.Kiwibank, this.Tsb, this.Westpac, this.Other);
 
@@ -138,7 +138,7 @@ export class Bank {
     }
 
     private static getFormattedBankAccount(bankNumber: number, branchNumber: number, accountNumber: number, suffix: number): string {
-        return 'asdf';
-        // return `${bankNumber:00}${branchNumber:0000}-${accountNumber:0000000}-${suffix:000}`;
+       
+        return `${bankNumber.toString().padStart(2, "0")}${branchNumber.toString().padStart(4, "0")}-${accountNumber.toString().padStart(7, "0")}-${suffix.toString().padStart(3, "0")}`;
     }
 }

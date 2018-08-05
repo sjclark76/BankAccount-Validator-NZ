@@ -1,5 +1,10 @@
-import { BankNumber } from "./bankNumber";
+import { Bank } from './bank';
 
-export function getBank (str: any): number {
-    return BankNumber.one.value;
-  }
+
+export function isBankAccountValid(bankId: number, bankNumber: number, branchNumber: number, accountNumber: number, suffix: number): boolean {
+  const isValid = Bank.isAccountNumberValid(bankId, bankNumber, branchNumber, accountNumber, suffix);
+
+  return isValid;
+}
+
+export * from './bank';

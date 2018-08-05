@@ -10,9 +10,9 @@ export declare class Bank {
     static readonly Tsb: Bank;
     static readonly Westpac: Bank;
     static readonly Other: Bank;
-    _bankId: number;
-    _name: string;
-    _bankNumbers: BankNumber[];
+    private _bankId;
+    private _name;
+    private _bankNumbers;
     constructor(bankId: number, name: string, bankNumbers: BankNumber[]);
     readonly bankId: number;
     readonly name: string;

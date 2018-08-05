@@ -1,7 +1,12 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var bankNumber_1 = require("./bankNumber");
-function getBank(str) {
-    return bankNumber_1.BankNumber.one.value;
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
-exports.getBank = getBank;
+Object.defineProperty(exports, "__esModule", { value: true });
+const bank_1 = require("./bank");
+function isBankAccountValid(bankId, bankNumber, branchNumber, accountNumber, suffix) {
+    const isValid = bank_1.Bank.isAccountNumberValid(bankId, bankNumber, branchNumber, accountNumber, suffix);
+    return isValid;
+}
+exports.isBankAccountValid = isBankAccountValid;
+__export(require("./bank"));
