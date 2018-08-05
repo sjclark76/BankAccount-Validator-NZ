@@ -1,5 +1,5 @@
 {
-  "name": "nz-bankaccount-validator",
+  "name": "bankaccount-validator-nz",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sjclark76/NZ-BankAccount-Validator.git"
+    "url": "git+https://github.com/sjclark76/BankAccount-Validator-NZ.git"
   },
   "author": "Stuart Clark",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sjclark76/NZ-BankAccount-Validator/issues"
+    "url": "https://github.com/sjclark76/BankAccount-Validator-NZ/issues"
   },
-  "homepage": "https://github.com/sjclark76/NZ-BankAccount-Validator#readme",
+  "homepage": "https://github.com/sjclark76/BankAccount-Validator-NZ#readme",
   "devDependencies": {
     "chai": "^4.1.2",
     "mocha": "^5.2.0",
