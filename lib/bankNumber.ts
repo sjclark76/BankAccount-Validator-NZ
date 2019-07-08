@@ -1,20 +1,13 @@
-import { Modulus11AlgorithmBase, AlgorithmA, AlgorithmD, AlgorithmE, AlgorithmF, AlgorithmG, AlgorithmX } from "./modulus11AlgorithmBase";
+import { Modulus11AlgorithmBase } from "./modulus11AlgorithmBase";
+import { AlgorithmX } from "./AlgorithmX";
+import { AlgorithmG } from "./AlgorithmG";
+import { AlgorithmF } from "./AlgorithmF";
+import { AlgorithmE } from "./AlgorithmE";
+import { AlgorithmD } from "./AlgorithmD";
+import { AlgorithmA } from "./AlgorithmA";
 import { NumberRange } from "./numberRange";
 
 export class BankNumber {
-    private _algorithm: Modulus11AlgorithmBase;
-    public value: number;
-    private _ranges: NumberRange[];
-
-    private constructor(bankNumber: number, algorithm: Modulus11AlgorithmBase, ranges: NumberRange[]) {
-        this._algorithm = algorithm;
-        this.value = bankNumber;
-        this._ranges = ranges;
-    }
-
-    public containsBranchNumber(branchNumber: number): boolean {
-        return this._ranges.some(numberRange => branchNumber >= numberRange.start && branchNumber <= numberRange.end);
-    }
 
     // tslint:disable-next-line:max-line-length
     public static one: BankNumber = new BankNumber(1, new AlgorithmA(), [new NumberRange(1, 999), new NumberRange(1100, 1199), new NumberRange(1800, 1899)]);
@@ -51,8 +44,21 @@ export class BankNumber {
     public static thirtyThree = new BankNumber(33, new AlgorithmF(), [new NumberRange(6700, 6799)]);
     public static thirtyFive = new BankNumber(35, new AlgorithmA(), [new NumberRange(2400, 2499)]);
     public static thirtyEight = new BankNumber(38, new AlgorithmA(), [new NumberRange(9000, 9499)]);
+    
+    public value: number;
+    private ranges: NumberRange[];
+    private algorithm: Modulus11AlgorithmBase;
+    private constructor(bankNumber: number, algorithm: Modulus11AlgorithmBase, ranges: NumberRange[]) {
+        this.algorithm = algorithm;
+        this.value = bankNumber;
+        this.ranges = ranges;
+    }
+
+    public containsBranchNumber(branchNumber: number): boolean {
+        return this.ranges.some(numberRange => branchNumber >= numberRange.start && branchNumber <= numberRange.end);
+    }
 
     public isFormattedAccountNumberValid(formattedAccountNumber: string): boolean {
-        return this._algorithm.validate(formattedAccountNumber);
+        return this.algorithm.validate(formattedAccountNumber);
     }
 }
