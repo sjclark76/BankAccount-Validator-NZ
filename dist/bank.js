@@ -70,6 +70,20 @@ class Bank {
             return false;
         }
     }
+    static isValid(bankAccount) {
+        if (!bankAccount) {
+            return false;
+        }
+        let isBankAccountValid = false;
+        for (const bank of this.values) {
+            const result = Bank.isBankAccountNumberValid(bank.bankId, bankAccount);
+            if (result) {
+                isBankAccountValid = result;
+                break;
+            }
+        }
+        return isBankAccountValid;
+    }
     static isBankAccountNumberValid(bankId, bankAccount) {
         if (!bankAccount || !bankId) {
             return false;

@@ -98,6 +98,28 @@ export class Bank {
         }
     }
 
+    public static isValid(bankAccount : string):boolean{
+
+        if(!bankAccount) {
+        return false;
+        }
+
+        let isBankAccountValid = false;
+
+        for(const bank of this.values)
+        {
+            const result = Bank.isBankAccountNumberValid(bank.bankId, bankAccount);
+
+            if(result)
+            {
+                isBankAccountValid = result;
+                break;
+            }
+        }      
+
+        return isBankAccountValid;
+    }
+
     public static isBankAccountNumberValid(bankId: number, bankAccount: string): boolean {
 
         if (!bankAccount || !bankId) {

@@ -17,6 +17,7 @@ export declare class Bank {
     static isBankNumberValid(bankId: number, bankNumber: number): boolean;
     static isBranchNumberValid(bankId: number, bankNumber: number, branchNumber: number): boolean;
     static isAccountNumberValid(bankId: number, bankNumber: number, branchNumber: number, accountNumber: number, suffix: number): boolean;
+    static isValid(bankAccount: string): boolean;
     static isBankAccountNumberValid(bankId: number, bankAccount: string): boolean;
     static getBank(bankId: number): Bank | undefined;
     private static getFormattedBankAccount;
